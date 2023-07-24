@@ -1,8 +1,8 @@
 import './App.scss';
-import { CandidateVotes } from './components/CandidateVotes';
-import { Filter } from './components/Filter';
+import CandidateVotes from './components/CandidateVotes';
+import Filter from './components/Filter';
 import ListCandidates from './components/ListCandidates';
-import { TotalVotes } from './components/TotalVotes';
+import TotalVotes from './components/TotalVotes';
 
 const App = () => (
   <main className="main">
@@ -11,8 +11,8 @@ const App = () => (
     <div className="content-container">
       <Filter />
       <div className="report-container">
-        <CandidateVotes />
         <TotalVotes />
+        <CandidateVotes />
       </div>
     </div>
   </main>

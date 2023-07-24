@@ -57,6 +57,7 @@
   border-radius: 10px;
 
   background-color: rgba(90, 255, 255, 0.1);
+  cursor: pointer;
 }
 
 .content-container {
@@ -93,6 +94,10 @@
     margin: 10px;
     border-radius: 10px;
     background-color: rgba(255, 0, 200, 0.1);
+
+    li.hide {
+      display: none;
+    }
   }
   
   .total-votes-card {
