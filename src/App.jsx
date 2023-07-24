@@ -1,41 +1,28 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from './vite.svg';
-import './App.css';
+// eslint-disable-next-line import/no-unresolved, import/no-absolute-path
+import './App.scss';
+import { Candidate } from './components/Candidate';
+import { CandidateVotes } from './components/CandidateVotes';
+import { Filter } from './components/Filter';
+import { ListCandidates } from './components/ListCandidates';
+import { TotalVotes } from './components/TotalVotes';
 
-function App() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+const App = () => (
+  <main className="main">
+    <h2>Voting App</h2>
+    <ListCandidates>
+      <Candidate name="Candidate 1" />
+      <Candidate name="Candidate 2" />
+      <Candidate name="Candidate 3" />
+      <Candidate name="Candidate 4" />
+    </ListCandidates>
+    <div className="content-container">
+      <Filter />
+      <div className="report-container">
+        <CandidateVotes />
+        <TotalVotes />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is
-          {' '}
-          {count}
-        </button>
-        <p>
-          Edit
-          {' '}
-          <code>src/App.jsx</code>
-          {' '}
-          and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  );
-}
+    </div>
+  </main>
+);
 
 export default App;
