@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const Candidate = ({name}) => {
-  return (
-    <li className="candidate-card">
-      {name}
-    </li>
-  )
-}
+const Candidate = ({ name }) => (
+  <li className="candidate-card">
+    {name}
+  </li>
+);
+
+export default Candidate;

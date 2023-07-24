@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
+// import totalVotesNum from '../../services/utils.js';
 
-export const TotalVotes = () => {
-  return (
-    <div className="total-votes-card">Total votes = 500</div>
-  )
-}
+export const TotalVotes = () => (
+  <div className="total-votes-card">
+    {/* {totalVotesNum} */}
+  </div>
+);
