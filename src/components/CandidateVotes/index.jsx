@@ -3,32 +3,24 @@ import { CandidateContext } from '../../store/CandidateContext';
 
 const CandidateVotes = () => {
   const store = useContext(CandidateContext);
-  const { type, total, selected } = store;
+  const { type, total, selected, data } = store;
+  const candidates = Object.keys(store.data);
+
+  const hideItem = (value) => selected === value || selected === 'all' ? '' : 'hide';
+  const typeFormat = (value) => type === 'number' ? data[value] : `${Math.floor((data[value] / total) * 100)}%`
 
   return (
     <div className="candidate-votes-card">
       <ul>
-        <li className={selected === Object.keys(store.data)[0] || selected === 'all' ? '' : 'hide'}>
-          {`${Object.keys(store.data)[0]} : ${
-            type === 'number'
-              ? store.data.Juan
-              : (`${Math.floor((store.data.Juan / total) * 100)}%`)
-          }`}
-        </li>
-        <li className={selected === Object.keys(store.data)[1] || selected === 'all' ? '' : 'hide'}>
-          {`${Object.keys(store.data)[1]} : ${
-            type === 'number'
-              ? store.data.Daniel
-              : (`${Math.floor((store.data.Daniel / total) * 100)}%`)
-          }`}
-        </li>
-        <li className={selected === Object.keys(store.data)[2] || selected === 'all' ? '' : 'hide'}>
-          {`${Object.keys(store.data)[2]} : ${
-            type === 'number'
-              ? store.data.Andrea
-              : (`${Math.floor((store.data.Andrea / total) * 100)}%`)
-          }`}
-        </li>
+        {
+          candidates.map( item => {
+            return (
+              <li className={hideItem(item)}>
+                {item}: {typeFormat(item)}
+              </li>
+            )
+          })
+        }
       </ul>
     </div>
   );

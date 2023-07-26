@@ -8,34 +8,34 @@ export const CandidateProvider = ({ children }) => {
     Daniel: 0,
     Andrea: 0,
   });
+  const [type, setType] = useState('number');
+  const [selected, setSelected] = useState('all');
 
-  const handleClick = (name) => {
+  const handleVotes = (name) => {
     setData({
       ...data,
       [name]: data[name] + 1,
     });
   };
 
-  const [type, setType] = useState('number');
-
   const handleChange = (event) => {
     setType(event.target.value);
   };
-
-  const [selected, setSelected] = useState('all');
 
   const handleSelect = (event) => {
     setSelected(event.target.value);
   };
 
-  const total = data.Juan + data.Daniel + data.Andrea;
+  const values = Object.values(data);
+  const total = values.reduce( (acc, cur) => {
+    return acc + cur;
+  }, 0);
 
   return (
     <CandidateContext.Provider
-      // eslint-disable-next-line react/jsx-no-constructed-context-values
       value={{
         data,
-        handleClick,
+        handleVotes,
         handleChange,
         total,
         type,

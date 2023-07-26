@@ -4,6 +4,7 @@ import { CandidateContext } from '../../store/CandidateContext';
 
 const Filter = () => {
   const store = useContext(CandidateContext);
+  const array = ['all', ...Object.keys(store.data)]
 
   return (
     <div className="filter-container">
@@ -12,7 +13,7 @@ const Filter = () => {
 
         <div>
           <label htmlFor="info-type">Tipo: </label>
-          <select name="info-type" id="" onChange={store.handleChange}>
+          <select name="info-type" id="info-type" onChange={store.handleChange}>
             <option value="number">Numero</option>
             <option value="percentage">Porcentaje</option>
           </select>
@@ -20,7 +21,7 @@ const Filter = () => {
 
         <div>
           <label htmlFor="candidate">Filtro: </label>
-          <select name="candidate" id="" onChange={store.handleSelect}>
+          <select name="candidate" id="candidate" onChange={store.handleSelect}>
             <option value="all">Todos</option>
             <option value="Juan">Juan</option>
             <option value="Daniel">Daniel</option>
